@@ -25,7 +25,7 @@ denominador2 = (PSherk**2)**0.5 * (YSherk**2)**0.5
 similitud2 = numerador2/denominador2
 
 
-# Calculo Prediccion Ramona
+# Calculo  de la Prediccion de Ramona para Jackass
 prediccionR = (similitud * PJackass + similitud2 *
                YJackass) / (similitud + similitud2)
 
