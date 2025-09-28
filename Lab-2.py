@@ -2,24 +2,24 @@ import time
 import math
 
 # Calificaciones frijolito
-Frijolito_Pokemon: 3.5
-Frijolito_Naruto: 5
-Frijolito_Demon_Slayer: None
+Frijolito_Pokemon= 3.5
+Frijolito_Naruto= 5
+Frijolito_Demon_Slayer= 0
 
 # Calificaciones raichu
-Raichu_Pokemon: 2.5
-Raichu_Naruto: None
-Raichu_Demon_Slayer: 3.5
+Raichu_Pokemon= 2.5
+Raichu_Naruto= 0
+Raichu_Demon_Slayer= 3.5
 
 # Calificaciones kenny
-Keny_Pokemon: None
-Kenny_Naruto: 4.5
-Kenny_Demon_Slayer: 4.5
+Kenny_Pokemon= 0
+Kenny_Naruto= 4.5
+Kenny_Demon_Slayer= 4.5
 
 # Calificaciones patas
-Patas_Pokemon: 2.5
-Patas_Naruto: 3.5
-Patas_Demon_Slayer: 4.5
+Patas_Pokemon= 2.5
+Patas_Naruto= 3.5
+Patas_Demon_Slayer= 4.5
 
 # Similitud Frijolito*Raichu
 num_Frijolito_Raichu = Frijolito_Pokemon * Raichu_Pokemon
@@ -64,3 +64,30 @@ sim_Raichu_Patas = num_Raichu_Patas / den_Raichu_Patas
 numerador_raichu = (sim_Raichu_Frijolito * Frijolito_Naruto) + (sim_Raichu_Keny * Kenny_Naruto) + (sim_Raichu_Patas * Patas_Naruto)
 denominador_raichu = sim_Raichu_Frijolito + sim_Raichu_Keny + sim_Raichu_Patas
 prediction_Raichu_Naruto = numerador_raichu / denominador_raichu
+
+#Similitud para Kenny * Patas
+num_Kenny_Patas = (Kenny_Naruto * Patas_Naruto) + (Kenny_Demon_Slayer * Patas_Demon_Slayer)
+den_Kenny_Patas = math.sqrt(math.pow(Kenny_Naruto, 2) + math.pow(Kenny_Demon_Slayer, 2)) * math.sqrt(math.pow(Patas_Naruto, 2) + math.pow(Patas_Demon_Slayer, 2))
+sim_Kenny_Patas = num_Kenny_Patas / den_Kenny_Patas
+
+
+#Similitud para Kenny * Raichu
+num_Kenny_Raichu = (Kenny_Demon_Slayer * Raichu_Demon_Slayer)
+den_Kenny_Raichu = math.sqrt(math.pow(Kenny_Demon_Slayer, 2)) * math.sqrt(math.pow(Raichu_Demon_Slayer, 2))
+sim_Kenny_Raichu = num_Kenny_Raichu / den_Kenny_Raichu
+
+#Similitud para Kenny * Frijolito
+num_Kenny_Frijolito = (Kenny_Naruto * Frijolito_Naruto) + (Kenny_Demon_Slayer * Frijolito_Demon_Slayer)
+den_Kenny_Frijolito = math.sqrt(math.pow(Kenny_Naruto, 2) + math.pow(Kenny_Demon_Slayer, 2)) * math.sqrt(math.pow(Frijolito_Naruto, 2) + math.pow(Frijolito_Demon_Slayer, 2))
+sim_Kenny_Frijolito = num_Kenny_Frijolito / den_Kenny_Frijolito
+
+#Predicción para Kenny * Pokemon
+numerador_kenny = (sim_Kenny_Patas * Patas_Pokemon) + (sim_Kenny_Raichu * Raichu_Pokemon) + (sim_Kenny_Frijolito * Frijolito_Pokemon)
+denominador_kenny = sim_Kenny_Patas + sim_Kenny_Raichu + sim_Kenny_Frijolito
+prediction_Kenny_Pokemon = numerador_kenny / denominador_kenny
+
+print("La prediccion de Kenny para Pokemon es: ", round(prediction_Kenny_Pokemon, 2) )
+print("La prediccion de Raichu para Naruto es: ", round(prediction_Raichu_Naruto, 2) )
+print("La prediccion de Frijolito para Demon Slayer es: ", round(prediction_Frijolito_Demon_Slayer, 2) )
+
+
