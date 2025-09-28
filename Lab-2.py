@@ -1,19 +1,22 @@
 import time
 import math
 
-# Datos de Usuarios
+# Calificaciones frijolito
 Frijolito_Pokemon: 3.5
 Frijolito_Naruto: 5
 Frijolito_Demon_Slayer: None
 
+# Calificaciones raichu
 Raichu_Pokemon: 2.5
 Raichu_Naruto: None
 Raichu_Demon_Slayer: 3.5
 
+# Calificaciones kenny
 Keny_Pokemon: None
 Kenny_Naruto: 4.5
 Kenny_Demon_Slayer: 4.5
 
+# Calificaciones patas
 Patas_Pokemon: 2.5
 Patas_Naruto: 3.5
 Patas_Demon_Slayer: 4.5
