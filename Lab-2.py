@@ -1,33 +1,33 @@
 import time
 import math
 
-# Calificaciones frijolito
+# Calificaciones de frijolito
 Frijolito_Pokemon = 3.5
 Frijolito_Naruto = 5
 Frijolito_Demon_Slayer = 0
 
-# Calificaciones raichu
+# Calificaciones de raichu
 Raichu_Pokemon = 2.5
 Raichu_Naruto = 0
 Raichu_Demon_Slayer = 3.5
 
-# Calificaciones kenny
+# Calificaciones de kenny
 Kenny_Pokemon = 0
 Kenny_Naruto = 4.5
 Kenny_Demon_Slayer = 4.5
 
-# Calificaciones patas
+# Calificaciones de patas
 Patas_Pokemon = 2.5
 Patas_Naruto = 3.5
 Patas_Demon_Slayer = 4.5
 
-# Similitud Frijolito*Raichu
+# Similitud de Frijolito y Raichu
 num_Frijolito_Raichu = Frijolito_Pokemon * Raichu_Pokemon
 den_Frijolito_Raichu = (math.sqrt(math.pow(Frijolito_Pokemon, 2))
                         ) * (math.sqrt(math.pow(Raichu_Pokemon, 2)))
 sim_Frijolito_Raichu = num_Frijolito_Raichu/den_Frijolito_Raichu
 
-# Similitud Frijolito*Patas
+# Similitud de Frijolito y Patas
 num_Frijolito_Patas = (Frijolito_Pokemon*Patas_Pokemon) + \
     (Frijolito_Naruto*Patas_Naruto)
 den_Frijolito_Patas = (math.sqrt(math.pow(Frijolito_Pokemon, 2) + math.pow(Frijolito_Naruto, 2))
@@ -35,25 +35,25 @@ den_Frijolito_Patas = (math.sqrt(math.pow(Frijolito_Pokemon, 2) + math.pow(Frijo
 
 sim_Frijolito_Patas = num_Frijolito_Patas/den_Frijolito_Patas
 
-# Predicción Frijolito*Demon_Slayer
+# Predicción de Frijolito y Demon_Slayer
 prediction_Frijolito_Demon_Slayer = (sim_Frijolito_Raichu * Raichu_Demon_Slayer +
                                      sim_Frijolito_Patas * Patas_Demon_Slayer) / (sim_Frijolito_Raichu + sim_Frijolito_Patas)
 
 # --- SIMILITUDES CON RAICHU ---
 
-# 1. Similitud Raichu * Frijolito
+# 1. Similitud de Raichu y Frijolito
 num_Raichu_Frijolito = Raichu_Pokemon * Frijolito_Pokemon
 den_Raichu_Frijolito = math.sqrt(
     pow(Frijolito_Pokemon, 2)) * math.sqrt(pow(Raichu_Pokemon, 2))
 sim_Raichu_Frijolito = num_Raichu_Frijolito/den_Raichu_Frijolito
 
-# 2. Similitud Raichu * Keny
+# 2. Similitud de Raichu y Keny
 num_Raichu_Keny = Raichu_Demon_Slayer * Kenny_Demon_Slayer
 den_Raichu_Keny = math.sqrt(
     math.pow(Raichu_Demon_Slayer, 2)) * math.sqrt(math.pow(Kenny_Demon_Slayer, 2))
 sim_Raichu_Keny = num_Raichu_Keny / den_Raichu_Keny
 
-# 3. Similitud Raichu * Patas
+# 3. Similitud de Raichu y Patas
 num_Raichu_Patas = (Raichu_Pokemon * Patas_Pokemon) + \
     (Raichu_Demon_Slayer * Patas_Demon_Slayer)
 den_Raichu_Patas = math.sqrt(math.pow(Raichu_Pokemon, 2) + math.pow(Raichu_Demon_Slayer, 2)) * \
