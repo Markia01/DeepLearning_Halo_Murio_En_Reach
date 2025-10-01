@@ -8,3 +8,10 @@ input_data = [
 ]
 
 w1, w2, b = -1,-1 , 1.5
+def step(x):
+    #Función de activación-1
+    if x >= 0:
+        return 1
+    else:
+        return 0
+    
