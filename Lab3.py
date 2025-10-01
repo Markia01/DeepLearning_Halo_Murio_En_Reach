@@ -15,3 +15,10 @@ def step(x):
     else:
         return 0
     
+print("Simulación de una sola neurona (NAND lógico):\n")
+
+for x in input_data: #for para tomar los valores del imput data y asignarlos a x1 y x2)
+    x1, x2 = x
+    # cálculo de la neurona, (a los valores de x se les multiplica los pesos respectivos 
+    # y al final se suma el bias)
+    z = x1*w1 + x2*w2 + b
