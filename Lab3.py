@@ -14,7 +14,7 @@ def step(x):
         return 1
     else:
         return 0
-    
+#Salida de la compuerta logica nand
 print("Simulación de una sola neurona (NAND lógico):\n")
 
 for x in input_data: #for para tomar los valores del imput data y asignarlos a x1 y x2)
