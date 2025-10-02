@@ -22,3 +22,5 @@ for x in input_data: #for para tomar los valores del imput data y asignarlos a x
     # cálculo de la neurona, (a los valores de x se les multiplica los pesos respectivos 
     # y al final se suma el bias)
     z = x1*w1 + x2*w2 + b
+    salida = step(z)
+    print(f"Entrada: {x} -> z={z:.1f}, salida={salida}")
