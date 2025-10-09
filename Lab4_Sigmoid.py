@@ -12,3 +12,4 @@ x = np.array([1.0, 0.5, -1.0]) # Vector de entrada (3 valores)
 #* Definimos la función de activación sigmoide
 def sigmoid(z):
   return 1 / (1 + np.exp(-z))
+#Segundo commit para tenerlo en ingles porque el primero lo puse en español jaja saludos, eliminen este mensaje a la brevedad
