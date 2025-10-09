@@ -1,15 +1,11 @@
 import numpy as np
+import time
+import random
 
-rand = np.random.seed(42)
+#* Semilla para reproducibilidad
+rng = np.random.default_rng(42) 
 
+#* 3 entradas → 4 salidas
+W = rng.random((3, 4))  # Matriz de pesos 3x4
+x = np.array([1.0, 0.5, -1.0]) # Vector de entrada (3 valores)
 
-W = np.random.rand(4, 4)
-b = np.random.rand(4, 1)
-x = np.random.rand(4, 1)
-
-
-def sigmoid(x):
-    return 1 / (1 + np.exp(-x))
-
-#* Feedforward (producto punto entrada * pesos)
-y_lineal = x @ W  # Esta es la salida lineal antes de la activación
