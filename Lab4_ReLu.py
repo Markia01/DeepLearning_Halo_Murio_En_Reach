@@ -1,29 +1,41 @@
-#Importing the libraries
+# Import the necessary libraries
 import numpy as np
-import time 
+import time
 import random
 
-#* Seed for reproducibility
+# Seed for reproducibility, so we get the same "random" numbers every time
 rng = np.random.default_rng(42)
 
-#* 3 inputs → 4 outputs
-W = rng.random((3, 4)) # 3x4 Weight matrix
-x = np.array([1.0, 0.5, -1.0]) # Input vector (3 values)
+# Define the network architecture: 3 inputs connected to 4 outputs
+W = rng.random((3, 4))      # Create a 3x4 Weight matrix
+x = np.array([1.0, 0.5, -1.0])  # Create an input vector with 3 values
 
-#* Inicio del Feedforward (producto punto entrada * pesos)
-y = x @ W  # Equivalente a np.dot(x, W)
-#*np.dot()
+# Define the ReLU (Rectified Linear Unit) activation function
+# It returns 0 for any negative input, or the input itself if it's 0 or positive.
 
-#Inicio de funcion de activacion ReLu
+
 def relu(z):
-    return np.maximum(0,z) #se aplica el max a cada elemento
+    return np.maximum(0, z)
 
-#salida de ReLu
-    y_relu = relu(y)
-#* Mostrar resultados
-print("Matriz de pesos (3x4):")
+# --- Feedforward Process ---
+
+
+# 1. Calculate the linear output (dot product of input * weights)
+linear_output = x @ W  # The '@' symbol is shorthand for np.dot(x, W)
+
+# 2. Apply the ReLU activation function to the linear output
+activated_output = relu(linear_output)
+
+# --- Display Results ---
+
+# Print the initial weights and input
+print("Weight Matrix (3x4):")
 print(W)
-print("\nEntrada:")
+print("\nInput Vector:")
 print(x)
-print("\nSalida:")
-print(y) 
+
+# Print the outputs at each stage
+print("\nLinear Output (before ReLU):")
+print(linear_output)
+print("\nActivated Output (after ReLU):")
+print(activated_output)
