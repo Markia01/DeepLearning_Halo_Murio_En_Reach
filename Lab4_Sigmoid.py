@@ -13,3 +13,9 @@ x = np.array([1.0, 0.5, -1.0]) # Vector de entrada (3 valores)
 def sigmoid(z):
   return 1 / (1 + np.exp(-z))
 #Segundo commit para tenerlo en ingles porque el primero lo puse en español jaja saludos, eliminen este mensaje a la brevedad
+
+#* Feedforward (producto punto entrada * pesos)
+y_lineal = x @ W  # Esta es la salida lineal antes de la activación
+
+#* Aplicamos la función sigmoide a la salida
+y_activada = sigmoid(y_lineal) # Esta es la salida final de la neurona
