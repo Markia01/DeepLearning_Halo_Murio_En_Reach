@@ -12,11 +12,11 @@ W = rng.random((3, 4))   # Matriz de pesos 3x4
 x = np.array([1.0, 0.5, -1.0])  # Vector de entrada (3 valores)
 
 
-#* Feedforward (producto punto entrada * pesos)
+#* Inicio del Feedforward (producto punto entrada * pesos)
 y = x @ W  # Equivalente a np.dot(x, W)
 #*np.dot()
 
-#Funcion de activacion ReLu
+#Inicio de funcion de activacion ReLu
 def relu(z):
     return np.maximum(0,z) #se aplica el max a cada elemento
 
