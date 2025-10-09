@@ -19,3 +19,13 @@ y_lineal = x @ W  # Esta es la salida lineal antes de la activación
 
 #* Aplicamos la función sigmoide a la salida
 y_activada = sigmoid(y_lineal) # Esta es la salida final de la neurona
+
+#* Mostrar resultados
+print("Matriz de pesos (3x4):")
+print(W)
+print("\nEntrada:")
+print(x)
+print("\nSalida lineal (antes de sigmoide):")
+print(y_lineal)
+print("\nSalida activada con sigmoide (valores entre 0 y 1):")
+print(y_activada)
