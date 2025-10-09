@@ -1,16 +1,14 @@
-##Neurona con ReLu
-#Implementacion de las librerias
+#Importing the libraries
 import numpy as np
 import time 
 import random
 
-#* Semilla para reproducibilidad
-rng = np.random.default_rng(42)  
- 
-#* 3 entradas → 4 salidas
-W = rng.random((3, 4))   # Matriz de pesos 3x4
-x = np.array([1.0, 0.5, -1.0])  # Vector de entrada (3 valores)
+#* Seed for reproducibility
+rng = np.random.default_rng(42)
 
+#* 3 inputs → 4 outputs
+W = rng.random((3, 4)) # 3x4 Weight matrix
+x = np.array([1.0, 0.5, -1.0]) # Input vector (3 values)
 
 #* Inicio del Feedforward (producto punto entrada * pesos)
 y = x @ W  # Equivalente a np.dot(x, W)
