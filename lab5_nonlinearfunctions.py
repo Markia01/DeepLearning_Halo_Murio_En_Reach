@@ -21,3 +21,20 @@ y_lineal = weighted_sum  # Salida antes de activar
 # --- 3. REQUISITO: Sentencia Match-Case para Activación ---
 # Puedes cambiar esta variable a: 'tanh', 'sigmoid', 'relu', 'linear'
 activation_choice = 'tanh'
+
+match activation_choice:
+    case 'tanh':
+        y_activada = np.tanh(y_lineal)
+        # Define la curva para la gráfica
+        x_curve = np.linspace(-5, 5, 100)
+        y_curve = np.tanh(x_curve)
+        title = "Función Tangente Hiperbólica (tanh) y Salidas"
+        y_label = "tanh(X)"
+
+    case 'sigmoid':
+        y_activada = sigmoid(y_lineal)
+        # Define la curva para la gráfica
+        x_curve = np.linspace(-8, 8, 100)
+        y_curve = sigmoid(x_curve)
+        title = "Función Sigmoide y Salidas"
+        y_label = "sigmoid(X)"
