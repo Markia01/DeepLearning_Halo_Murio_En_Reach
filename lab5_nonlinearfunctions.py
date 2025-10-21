@@ -38,3 +38,12 @@ match activation_choice:
         y_curve = sigmoid(x_curve)
         title = "Función Sigmoide y Salidas"
         y_label = "sigmoid(X)"
+
+    case 'relu':
+        y_activada = np.maximum(0, y_lineal)
+        # Define la curva para la gráfica
+        x_curve = np.linspace(-5, 5, 100)
+        y_curve = np.maximum(0, x_curve)
+        title = "Función ReLU (Rectified Linear Unit) y Salidas"
+        y_label = "ReLU(X)"
+
