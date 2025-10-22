@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 # --- 1. Configuración Inicial ---
 # * Semilla para reproducibilidad
-rng = np.random.default_rng(42)  # random number generator
+rng = np.random.default_rng(42)  # random generador de numeros aleatorios
 
 # * 3 entradas → 4 salidas
 W = rng.random((3, 4))  # Matriz de pesos 3x4    W = [weights]
@@ -19,7 +19,7 @@ weighted_sum = X @ W
 y_lineal = weighted_sum  # Salida antes de activar
 
 # --- 3. REQUISITO: Sentencia Match-Case para Activación ---
-# Puedes cambiar esta variable a: 'tanh', 'sigmoid', 'relu', 'linear'
+# Es posible cambiar esta variable por: 'tanh', 'sigmoid', 'relu', 'linear'
 activation_choice = 'tanh'
 
 match activation_choice:
