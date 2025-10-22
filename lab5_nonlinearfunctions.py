@@ -47,3 +47,20 @@ match activation_choice:
         title = "Función ReLU (Rectified Linear Unit) y Salidas"
         y_label = "ReLU(X)"
 
+    case 'linear' | _:  # Caso 'linear' o cualquier otro valor (default)
+        y_activada = y_lineal
+        # Define la curva para la gráfica (identidad)
+        x_curve = np.linspace(-5, 5, 100)
+        y_curve = x_curve
+        title = "Función Lineal (Identidad) y Salidas"
+        y_label = "X"
+
+# --- 4. Visualización ---
+# Gráfica de la función de activación elegida
+plt.plot(x_curve, y_curve, label=f"Curva {activation_choice}(x)")
+
+# Graficar las salidas activadas como líneas horizontales
+for i, val in enumerate(y_activada):
+    plt.hlines(val, x_curve[0], x_curve[-1], colors='r', linestyles='--',
+               label=f'Output {i+1}: {val:.2f}' if i == 0 else None)
+
