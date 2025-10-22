@@ -64,3 +64,22 @@ for i, val in enumerate(y_activada):
     plt.hlines(val, x_curve[0], x_curve[-1], colors='r', linestyles='--',
                label=f'Output {i+1}: {val:.2f}' if i == 0 else None)
 
+plt.title(title)
+plt.xlabel("X (Entrada a la activación)")
+plt.ylabel(y_label)
+plt.grid(True)
+plt.axhline(0, color='black', linewidth=1, ls='-')
+plt.axvline(0, color='black', linewidth=1, ls='-')
+plt.legend()
+
+# --- 5. Mostrar Resultados en Consola ---
+print("Matriz de pesos (3x4):")
+print(W)
+print("\nEntrada (1x3):")
+print(X)
+print("\nSalida lineal (Suma ponderada) (1x4):")
+print(y_lineal)
+print(f"\nSalida activada con '{activation_choice}' (1x4):")
+print(y_activada)
+
+plt.show()
