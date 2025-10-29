@@ -24,3 +24,23 @@ b2= tf.Variable(tf.random.normal([3]), name='bias2')
 #define out layer
 w_out= tf.Variable(tf.random.normal([3,3]), name='weight out')
 b_out= tf.Variable(tf.random.normal([3]), name='bias out')
+
+# --- Cálculos de la Red Neuronal ---
+
+print("Tensor de Entrada (X):")
+print(X.numpy())
+
+## 1. Cálculo de la Capa Oculta 1 (con ReLU)
+# Usamos tf.matmul para la multiplicación de matrices (Entrada * Pesos) + Sesgo
+z1 = tf.matmul(X, w1) + b1
+# Aplicamos la activación ReLU
+h1 = relu(z1)
+
+print("\n--- Activación Capa Oculta 1 (ReLU) ---")
+print(h1.numpy())
+
+## 2. Cálculo de la Capa Oculta 2 (con Sigmoide)
+# La entrada a esta capa es la salida de la capa anterior (h1)
+z2 = tf.matmul(h1, w2) + b2
+# Aplicamos la activación Sigmoide
+h2 = sigmoid(z2)
