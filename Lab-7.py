@@ -5,20 +5,25 @@ import numpy as np
 print(f"TensorFlow Version: {tf.__version__}")
 
 # - 1. Definiciones de Funciones -
+
+
 def relu(x):
     """Aplica la activación Rectified Linear Unit (ReLU)."""
     return tf.nn.relu(x)
 
+
 def sigmoid(x):
     """Aplica la activación Sigmoid."""
     return tf.nn.sigmoid(x)
+
 
 def tanh(x):
     """Aplica la activación Tangente Hiperbólica (Tanh)."""
     # Esta es la tercera función que pedía la imagen.
     return tf.nn.tanh(x)
 
-# - 2. Definición de la Red Neuronal (Arquitectura 2-3-3) 
+# - 2. Definición de la Red Neuronal (Arquitectura 2-3-3)
+
 
 # Entradas (Inputs)
 X = tf.constant([
@@ -33,3 +38,49 @@ w1 = tf.Variable(tf.random.normal([2, 3]), name='weight1')
 b1 = tf.Variable(tf.random.normal([3]), name='bias1')
 
 
+# 2.3. Capa de Salida (3 salidas)
+# Necesitamos mapear [3 neuronas] -> [3 salidas]
+# w_out (pesos) debe tener forma [3, 3]
+# b_out (bias) debe tener forma [3]
+w_out = tf.Variable(tf.random.normal([3, 3]), name='weight_out')
+b_out = tf.Variable(tf.random.normal([3]), name='bias_out')
+
+
+# --- 3. Cálculos de la Red y Observación de Activaciones ---
+
+print("--- 3.1. Cálculos de la Red ---")
+print("Input Tensor (X):")
+print(X.numpy())
+print("Shape:", X.shape)
+
+# 3.2. Cálculo de la Capa Oculta (ANTES de activar)
+# Esta es la "combinación lineal": (X * w1) + b1
+# z1 tendrá los valores 'en bruto' para las 3 neuronas.
+z1 = tf.matmul(X, w1) + b1
+
+print("\nCapa Oculta (Pre-Activación, z1):")
+print(z1.numpy())
+print("Shape:", z1.shape)
+
+# 3.3. OBSERVACIÓN DE ACTIVACIONES (Como pide la imagen)
+# Ahora aplicamos las 3 funciones a 'z1' para ver qué haría cada una.
+h_relu = relu(z1)
+h_sigmoid = sigmoid(z1)
+h_tanh = tanh(z1)
+
+print("\n--- 3.2. Observación de Funciones de Activación ---")
+print("\nResultado si usamos ReLU (h_relu):")
+print(h_relu.numpy())
+
+print("\nResultado si usamos Sigmoid (h_sigmoid):")
+print(h_sigmoid.numpy())
+
+print("\nResultado si usamos Tanh (h_tanh):")
+print(h_tanh.numpy())
+
+# 3.4. Cálculo de la Salida Final
+# Para completar la red, elegiremos UNA activación.
+# Usaremos h_relu (la más común) para alimentar la capa de salida.
+z_out = tf.matmul(h_relu, w_out) + b_out
+# y_final es la salida de la red (sin activación final)
+y_final = z_out
