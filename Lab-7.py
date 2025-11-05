@@ -84,3 +84,41 @@ print(h_tanh.numpy())
 z_out = tf.matmul(h_relu, w_out) + b_out
 # y_final es la salida de la red (sin activación final)
 y_final = z_out
+
+print("\n--- 3.3. Salida Final de la Red (usando ReLU) ---")
+print(y_final.numpy())
+print("Output shape:", y_final.shape)
+
+
+# --- 4. Parte Gráfica (Requerimiento de la Imagen) ---
+# Para "observar el comportamiento", graficamos las funciones
+# en un rango amplio, no solo con los datos de la red.
+
+print("\n--- 4. Generando Gráfica de Comportamiento ---")
+
+# 4.1. Creamos un rango de entrada de -10 a 10
+x_graph = tf.linspace(-10.0, 10.0, 100)
+
+# 4.2. Aplicamos las funciones a ese rango
+y_sigmoid_graph = sigmoid(x_graph)
+y_tanh_graph = tanh(x_graph)
+y_relu_graph = relu(x_graph)
+
+# 4.3. Creamos la gráfica con Matplotlib
+plt.figure(figsize=(10, 7))
+plt.plot(x_graph.numpy(), y_sigmoid_graph.numpy(), label='Sigmoid', color='blue')
+plt.plot(x_graph.numpy(), y_tanh_graph.numpy(), label='Tanh', color='green')
+plt.plot(x_graph.numpy(), y_relu_graph.numpy(), label='ReLU', color='red')
+
+# 4.4. Configuramos la gráfica
+plt.title('Comportamiento de Funciones de Activación')
+plt.xlabel('Valores de Entrada (z)')
+plt.ylabel('Valores de Salida (Activación)')
+plt.legend()
+plt.grid(True)
+plt.ylim(-1.5, 2.0) # Ajuste para ver bien las 3 funciones
+plt.axhline(0, color='black', linewidth=0.5)
+plt.axvline(0, color='black', linewidth=0.5)
+
+# 4.5. Mostramos la gráfica
+plt.show()
