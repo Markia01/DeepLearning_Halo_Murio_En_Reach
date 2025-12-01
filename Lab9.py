@@ -1,9 +1,8 @@
 import random
-import random
-#Crear una solucion al azar (0-100)
-def crear_individuo():
-    return [random.randint(0, 10)]
 
-#Calcular el fitness de un individuo
-def  fitness(x):
-    return x
+# ERROR 3: Quitamos los corchetes [] para retornar un número entero, no una lista.
+def crear_individuo():
+    return random.randint(0, 100) # Aumenté el rango a 100 para ver mejor la evolución
+
+def fitness(x):
+    return x # Queremos maximizar el número (llegar a 100)
