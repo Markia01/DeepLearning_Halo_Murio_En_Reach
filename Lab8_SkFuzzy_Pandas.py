@@ -77,3 +77,16 @@ model.fit(X_train, y_train, epochs=50, batch_size=4, verbose=1)
 # Evaluación rápida
 loss, accuracy = model.evaluate(X_test, y_test, verbose=1)
 print(f"Precisión en test: {accuracy*100:.2f}%")
+
+
+# --- PASO 5: Predicción de un Caso Nuevo ---
+# Persona de 65 años (Mayor) con salario alto (80,000)
+# --- Creación de nuevos candidatos ---
+candidatos = pd.DataFrame({
+    'nombre': ['Joven Becario', 'Ejecutivo Senior', 'Jubilado Rico'],
+    'edad': [20, 45, 72],
+    'salario': [15000, 95000, 50000]
+})
+    
+print("--- Nuevos Candidatos ---")
+print(candidatos)
