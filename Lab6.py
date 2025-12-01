@@ -60,7 +60,7 @@ z_out = tf.matmul(h2, w_out) + b_out
 # 'y_final' is now the final output
 y_final = z_out.numpy() 
 
-
+#imprime datos
 print("\n--- Neural Network Output (3 samples, 2 outputs each) ---")
 print(y_final)
 print("Output shape:", y_final.shape)
